@@ -11,7 +11,7 @@ music = False
 
 def set():
     global t
-    rem = sd.askstring("Время напоминания", "введите время напоминания в формате ЧЧ:ММ (24 чиасов формате)")
+    rem = sd.askstring("Время напоминания", "введите время напоминания в формате ЧЧ:ММ (24 часов формате)")
     if rem:
         try:
             hour = int(rem.split(":")[0])
@@ -23,7 +23,7 @@ def set():
             t = dt.timestamp()
             print(t)
             text = sd.askstring("Текст напоминания", "Введите текст напоминания.")
-            lab.config(text=f"Напоминание на {hour:02}:{minute:02} с текстом {text}")
+            lab.config(text=f"Напоминание на {hour:02}:{minute:02}:\n  {text}")
         except Exception as e:
             mb.showerror("Ошибка", f"Произошла ошибка {e}")
 
