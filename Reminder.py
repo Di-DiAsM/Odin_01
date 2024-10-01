@@ -40,6 +40,7 @@ def play_snd():
 
 
 window = Tk()
+window.geometry("250x250+1000+300")
 window.title("Напоминание")
 lab = Label(text="Установите напоминание")
 lab.pack(pady=10)
