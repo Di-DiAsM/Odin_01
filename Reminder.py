@@ -17,7 +17,7 @@ def set():
             minute = int(rem.split(":")[1])
             now = datetime.datetime.now()
             print(now)
-            dt = now.replace(hour=hour, minute=minute)
+            dt = now.replace(hour=hour, minute=minute, second=0)
             print(dt)
             t = dt.timestamp()
             print(t)
@@ -31,7 +31,7 @@ def check():
         if now >= t:
             play_snd()
             t = 0
-    window.after(10000, check())
+    window.after(10000, check)
 
 def play_snd():
     pygame.mixer.init()
@@ -42,11 +42,12 @@ def play_snd():
 window = Tk()
 window.geometry("250x250+1000+300")
 window.title("Напоминание")
-lab = Label(text="Установите напоминание")
+lab = Label(text="Установите напоминание", font=("Arial", 14))
 lab.pack(pady=10)
 set_button = Button(text="Установить напоминание", command=set)
 set_button.pack()
 
+check()
 
 
 
