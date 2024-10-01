@@ -22,6 +22,8 @@ def set():
             print(dt)
             t = dt.timestamp()
             print(t)
+            text = sd.askstring("Текст напоминания", "Введите текст напоминания.")
+            lab.config(text=f"Напоминание на {hour:02}:{minute:02} с текстом {text}")
         except Exception as e:
             mb.showerror("Ошибка", f"Произошла ошибка {e}")
 
@@ -46,11 +48,11 @@ def stop_music():
     if music:
         pygame.mixer.music.stop()
         music = False
-    label.config(text="Установите новое напоминание")
+    lab.config(text="Установите новое напоминание")
 
 
 window = Tk()
-window.geometry("250x250+1000+300")
+window.geometry("450x250+1000+300")
 window.title("Напоминание")
 
 lab = Label(text="Установите напоминание", font=("Arial", 14))
